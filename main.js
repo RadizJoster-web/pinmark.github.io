@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const app = express();
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
+const fs = require("fs");
+const ejs = require("ejs");
 const saltRounds = 10;
 
 const {
@@ -126,6 +128,23 @@ const profile = multer.diskStorage({
 // Menggunakan konfigurasi penyimpanan di multer
 const upload = multer({ storage: storage });
 const uploadProfile = multer({ storage: profile }).single("profile"); // Sama, ganti 'fileimg' sesuai dengan field input file form
+
+const templatePath = path.join(__dirname, "views", "index.ejs");
+const outputPath = path.join(__dirname, "public", "index.html");
+
+ejs.renderFile(
+  templatePath,
+  {
+    /* data */
+  },
+  (err, str) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    fs.writeFileSync(outputPath, str);
+  }
+);
 
 app.get("/", cekUser1, async (req, res) => {
   try {
