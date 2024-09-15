@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="<%= style %>" />
+    <title>login</title>
+  </head>
+  <body>
+    <section id="navigasi" class="navigasi">
+      <header>
+        <a href="/">Pinmark</a>
+      </header>
+    </section>
+
+    <form id="loginForm">
+      <h1>Log in</h1>
+      <input type="text" name="username" placeholder="User Name" />
+      <p id="emailErr"></p>
+      <input type="password" name="password" placeholder="Password" />
+      <p id="pswdErr"></p>
+      <button type="submit">Log in</button>
+      <p>Belum punya akun? <a href="/signup">signup</a></p>
+    </form>
+    <script src="<%= script %>"></script>
+  </body>
+</html>

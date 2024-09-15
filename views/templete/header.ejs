@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+      /*  font-family: "Roboto Slab", serif; */
+      @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap");
+      /* font-family: "Barlow Condensed", sans-serif; */
+    </style>
+    <!-- ---- -->
+
+    <link rel="stylesheet" href="<%= style %>" />
+  </head>
+  <body>
+    <% if (user) { %>
+    <section id="navigasi" class="navigasi">
+      <header>
+        <a href="/">Pinmark</a>
+      </header>
+
+      <footer>
+        <% if (user && user.length > 0) { %>
+        <span>
+          <a href="/upload"><i class="bi bi-plus-lg" id="upload"></i></a>
+          <div id="acount" class="acount">
+            <% if (user[0].profile !== null ) { %>
+            <img src="<%= user[0].profile %>" alt="Profile Picture" />
+            <% } else { %>
+            <i class="bi bi-person-circle"></i>
+            <% } %>
+          </div>
+          <ul id="formAcount">
+            <div class="acount-Form">
+              <header>
+                <% if (user[0].profile !== null ) { %>
+                <img src="<%= user[0].profile %>" alt="Profile Picture" />
+                <% } else { %>
+                <i class="bi bi-person-circle"></i>
+                <% } %>
+              </header>
+
+              <nav>
+                <h1><%= user[0].username %></h1>
+                <a href="/profile/<%= user[0].username %>">Lihat Profile</a>
+              </nav>
+            </div>
+            <hr />
+            <li>
+              <a href="/gantinama">Ganti Nama</a>
+            </li>
+            <li>
+              <a href="/gantipassword">Ganti Password</a>
+            </li>
+            <li>
+              <a href="/gantiFotoProfile">Ganti Foto Profile</a>
+            </li>
+            <li>
+              <a href="/logout">Log out</a>
+            </li>
+          </ul>
+        </span>
+        <% } else { %>
+        <div class="authForm">
+          <a href="/signup">Sign up</a>
+          <a href="/login">Log in</a>
+        </div>
+
+        <% } %>
+      </footer>
+    </section>
+    <% } else { %>
+
+    <section id="navigasi" class="navigasi">
+      <header>
+        <a href="/">Jo Media</a>
+      </header>
+
+      <footer>
+        <a href="/signup">Sign up</a>
+        <a href="/login">Log in</a>
+      </footer>
+    </section>
+    <% } %>
+  </body>
+</html>

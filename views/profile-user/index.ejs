@@ -1,0 +1,42 @@
+<%- include('../templete/header') %>
+
+<section class="container">
+  <header>
+    <% if (User[0].profile !== null ) { %>
+    <img src="<%= User[0].profile %>" alt="Profile Picture" />
+    <% } else { %>
+    <i class="bi bi-person-circle"></i>
+    <% } %>
+    <h1><%= User[0].username %></h1>
+    <div>
+      <span>
+        <input type="radio" name="option" id="dibuat" />
+        <label for="dibuat">Foto Anda</label>
+      </span>
+      <span>
+        <input type="radio" name="option" id="disimpan" />
+        <label for="disimpan">Disimpan</label>
+      </span>
+    </div>
+  </header>
+
+  <footer id="formUpload" class="gallery">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </footer>
+
+  <footer id="formDisimpan" class="galleryDisimpan">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </footer>
+
+  <div id="zoomImg" class="zoomImg"></div>
+</section>
+
+<%- include('../templete/footer') %>

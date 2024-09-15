@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="<%= style %>" />
+    <title>Upload</title>
+  </head>
+  <body>
+    <section class="formUpload">
+      <form id="formUpload">
+        <h1>upload</h1>
+
+        <input
+          type="file"
+          name="fileimg"
+          id="fileimg"
+          accept="image/*"
+          required
+        />
+
+        <img src="#" alt="your image" id="preview" />
+
+        <input type="text" id="nameimg" placeholder="Title" />
+
+        <button type="submit">Upload Gambar</button>
+      </form>
+    </section>
+
+    <script src="<%= script %>"></script>
+  </body>
+</html>
